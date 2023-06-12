@@ -7,8 +7,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "ESX Overextended",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  tagline: "FiveM RPG Framework",
+  favicon: "img/icon.ico",
 
   // Set the production url of your site here
   url: "https://esx-overextended.github.io",
@@ -85,7 +85,8 @@ const config = {
         title: "ESX-Overextended",
         logo: {
           alt: "ESX-Overextended Logo",
-          src: "img/logo.svg",
+          src: "img/transparent_black_logo.png",
+          srcDark: "img/transparent_white_logo.png",
         },
         items: [
           {
