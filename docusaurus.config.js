@@ -55,6 +55,14 @@ const config = {
   ],
 
   plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "tutorials",
+        path: "tutorials",
+        routeBasePath: "tutorials",
+      },
+    ],
     async function myPlugin(context, options) {
       return {
         name: "docusaurus-tailwindcss",
@@ -80,6 +88,14 @@ const config = {
           src: "img/logo.svg",
         },
         items: [
+          {
+            type: "docSidebar",
+            docId: "database",
+            sidebarId: "defaultSidebar",
+            docsPluginId: "tutorials",
+            position: "left",
+            label: "Tutorials",
+          },
           {
             type: "docSidebar",
             sidebarId: "documentationSidebar",

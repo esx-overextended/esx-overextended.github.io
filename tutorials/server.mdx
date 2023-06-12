@@ -1,0 +1,56 @@
+# Creating A Server
+
+# **Do Not Follow This Guidline As it is Not Complete Yet**
+
+# **Do Not Follow This Guidline As it is Not Complete Yet**
+
+# **Do Not Follow This Guidline As it is Not Complete Yet**
+
+This Guide will show the quick and easy way to setup a FiveM server using txAdmin!
+
+## Starting Notes
+
+- **Make sure you have successfully installed and setup the [database](../tutorials/database) before continuing!**
+
+- Make sure to register a free licence key at [Cfx.re Keymaster](https://keymaster.fivem.net/)
+
+- When asked for an IP use the _Public IPv4 Address_ of the machine that you are setting up your FiveM server on
+
+## Step 1: Installing The Server
+
+- Head to the [Artifact Download page](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/)
+- Click the download with the highest number - [see here](https://i.imgur.com/OMcCVIW.png)
+- Open the `server.zip` you just downloaded and extract it anywhere you want to store it. (We'll pick `C:\FXServer\server` as an example for this tutorial)
+- Open the extracted folder, it should look like [this](https://docs.fivem.net/server-setup/windows-step-5.png)
+
+## Step 2: Starting Your Server
+
+- In the extacted folder, find `FXserver.exe` and double click it
+- This site should open in your browser; if it does not, open your browser and goto `localhost:40120`
+- Make sure the PIN is filled in and then press `Link Account`.
+- You will then be prompted to log into your [Cfx.re](https://forum.cfx.re/) account, click `Yes, Allow` once done.
+- You will then be promted to create a backup password, incase CFX.re auth does not work.
+
+## Step 3: Setting Up Your Server
+
+- Assuming you are now on a menu similar to [this](https://docs.fivem.net/server-setup/windows-step2-5.png), click `Next`
+- From here choose `Remote URL Template`.
+- Then in the input box that appears, enter the line below:
+
+```
+https://raw.githubusercontent.com/esx-overextended/txAdminRecipe/main/recipe.yaml
+```
+
+- Once entered, press `Save` and then head to the `Recipe Deployer`!
+
+## Step 4: Deploying Your Server
+
+- The recipe deployer will take you to an overview of the recipe selected.
+- By default, these should be correct, so scroll to the bottom and press `Next`.
+- It will then ask for your [Cfx.re licence key](https://keymaster.fivem.net/).
+- Once entered, press `Run Recipe`.
+- This will start downloading and installing the resource files into the server!
+- once it has finished, click `Save & Run Server`.
+- you will then be taken to the txAdmin dashboard, and can load into your server!
+
+_P.S. Keep in mind first time loading of the server takes more as it has to configure the resources, so let the server do its job and read/load the resources properly..._
