@@ -1,0 +1,62 @@
+---
+title: Introduction
+sidebar_position: 1
+---
+
+**es_extended** is the core resource of the ESX ecosystem.
+
+It handles players and vehicles objects and their related functions.
+It also includes multiple pre-defined functions to be used in external resources that utilize ESX.
+
+# Installation
+
+Offical guide to installing **ESX-Overextended**.
+
+## Requirements
+
+- [oxmysql](https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip)
+- spawnmanager
+- [ox_lib](https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip)
+
+Make sure you have successfully installed and setup your [database](../tutorials/database) before you continuing!
+
+## Download
+
+### Using Git
+
+```git
+git clone https://github.com/esx-overextended/es_extended
+```
+
+### Manually
+
+- Download [es_extended](https://github.com/esx-overextended/es_extended)
+
+## Install
+
+- Extract the downloaded zip and make sure the extracted folder name is `es_extended` (case sensitive)
+- Place it into the `resources` folder in your server.
+- Open your database manager/HeidiSQL and import the `esx-overextended.sql` file located in es_extended folder into your database.
+
+- Make sure you are **NOT** using any of these resources:
+
+  - `ox_core`
+  - `qb-core`
+  - `qbx-core`
+  - `essentialmode`
+  - `basic-gamemode`
+  - `mapmanager`
+  - `fivem-map-skater`
+  - `fivem-map-hipster`
+  - `mysql-async`
+  - `default_spawnpoint`
+
+- Make sure your `server.cfg` to looks similar to this (all requirement resources **must** be started before es_extended)
+
+```diff title="server.cfg"
+ensure oxmysql
+ensure spawnmanager
+
+ensure ox_lib
+ensure es_extended
+```
