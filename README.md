@@ -1,4 +1,4 @@
-# ESX-Overextended Resources Documentation
+# ESX-Overextended Resources (Documentation)[https://esx-overextended.github.io/]
 
 ## Local Development
 
