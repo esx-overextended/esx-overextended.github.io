@@ -1,0 +1,20 @@
+---
+sidebar_label: /removegroup
+---
+
+# Remove Group
+
+This command remove a group from the player with the specified server id.
+
+```lua
+/removegroup [id] [groupName]
+```
+
+- id: `number` (the server id of the target player)
+- groupName: `string` (the name of the group to remove)
+  - _the list of groups can be found/modified in `groups` table of database_
+  - _p.s. groupName can also be a job name which the list of it can be found/modified in `jobs` table of database_
+
+:::info
+_By default only admins can execute this command_
+:::

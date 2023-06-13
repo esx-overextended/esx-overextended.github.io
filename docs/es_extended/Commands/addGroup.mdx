@@ -1,0 +1,23 @@
+---
+sidebar_label: /addgroup
+---
+
+# Add Group
+
+This command adds a group to the player with the specified server id.
+
+```lua
+/addgroup [id] [groupName] [groupGrade]
+```
+
+- id: `number` (the server id of the target player)
+- groupName: `string` (the name of the group to add)
+  - _the list of groups can be found/modified in `groups` table of database_
+  - _p.s. groupName can also be a job name which the list of it can be found/modified in `jobs` table of database_
+- groupGrade: `number` (the grade of the group to add)
+  - _the list of group grades can be found/modified in `group_grades` table of database_
+  - _p.s. groupGrade can also be a job grade which the list of it can be found/modified in `job_grades` table of database_
+
+:::info
+_By default only admins can execute this command_
+:::

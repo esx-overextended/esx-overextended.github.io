@@ -1,0 +1,21 @@
+---
+sidebar_label: /setjob
+---
+
+# Set Job
+
+This command sets the job to the player with the specified server id.
+
+```lua
+/setjob [id] [jobName] [jobGrade]
+```
+
+- id: `number` (the server id of the target player)
+- jobName: `string` (the name of the job to set)
+  - _the list of jobs can be found/modified in `jobs` table of database_
+- jobGrade: `number` (the grade of the job to set)
+  - _the list of job grades can be found/modified in `job_grades` table of database_
+
+:::info
+_By default only admins can execute this command_
+:::

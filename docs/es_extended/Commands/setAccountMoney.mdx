@@ -1,0 +1,22 @@
+---
+sidebar_label: /setaccountmoney
+---
+
+# Set Account Money
+
+This command sets money amount to the account balance of the player with the specified id.
+
+```lua
+/setaccountmoney [id] [acccountName] [amount]
+```
+
+- id: `number` (the server id of the target player)
+- acccountName: `string` (the name of the account to set the amount to)
+  - `money` (it's the legal cash/money that players carry in their pocket/inventory)
+  - `bank`
+  - `black_money` (it's the illegal dirty-money that players carry in their pocket/inventory)
+- amount: `number` (the amount of money to set to the specified account name)
+
+:::info
+_By default only admins can execute this command_
+:::
