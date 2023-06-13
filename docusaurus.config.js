@@ -108,11 +108,13 @@ const config = {
             href: "https://github.com/esx-overextended",
             label: "GitHub",
             position: "right",
+            className: "header-github-link flex items-center justify-center gap-2",
           },
           {
             href: "https://discord.gg/5JzWm4ndsB",
             label: "Discord",
             position: "right",
+            className: "header-discord-link flex items-center justify-center gap-2",
           },
         ],
       },
