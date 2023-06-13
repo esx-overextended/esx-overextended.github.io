@@ -3,6 +3,9 @@ title: Introduction
 sidebar_position: 1
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 **es_extended** is the core resource of the ESX ecosystem.
 
 It handles players and vehicles objects and their related functions.
@@ -12,25 +15,42 @@ It also includes multiple pre-defined functions to be used in external resources
 
 Offical guide to installing **ESX-Overextended**.
 
+:::tip
+Make sure you have successfully installed and setup the [database](../tutorials/database) before continuing!
+:::
+
 ## Requirements
 
-- [oxmysql](https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip)
-- spawnmanager
-- [ox_lib](https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip)
+- [oxmysql<span class="asterisk">\*</span>](https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip)
+- spawnmanager<span class="asterisk">\*</span>
+- [ox_lib<span class="asterisk">\*</span>](https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip)
+- [illenium-appearance<span class="asterisk">\*</span>](https://github.com/iLLeniumStudios/illenium-appearance/releases/latest/download/illenium-appearance.zip)
 
-**Make sure you have successfully installed and setup the [database](../tutorials/database) before continuing!**
+## Optional Requirements
+
+These resources aren't required but provide additional functionality.
+
+- [esx_identity](https://github.com/esx-overextended/esx_identity)
+- [esx_multicharacter](https://github.com/esx-overextended/esx_multicharacter) (_if using multicharacter, esx_identity **must** be installed_)
+- [ox_inventory](https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip): replaces the default esx's menu-based inventory
+- [npwd](https://github.com/project-error/npwd): provides mobile phone functionality in-game
 
 ## Download
 
-### Using Git
+<Tabs queryString="download">
+<TabItem value="git" label="Using Git Clone" default>
 
-```git
+```bash
 git clone https://github.com/esx-overextended/es_extended
 ```
 
-### Manually
+</TabItem>
+<TabItem value="manually" label="Downloading Manually">
 
-- Download [es_extended](https://github.com/esx-overextended/es_extended)
+Download [es_extended](https://github.com/esx-overextended/es_extended)
+
+</TabItem>
+</Tabs>
 
 ## Install
 
@@ -44,6 +64,7 @@ git clone https://github.com/esx-overextended/es_extended
   - `qb-core`
   - `qbx-core`
   - `essentialmode`
+  - `vrp`
   - `basic-gamemode`
   - `mapmanager`
   - `fivem-map-skater`
@@ -51,7 +72,7 @@ git clone https://github.com/esx-overextended/es_extended
   - `mysql-async`
   - `default_spawnpoint`
 
-- Make sure your `server.cfg` to looks similar to this (all requirement resources **must** be started before es_extended)
+- Make sure the start order of the resources in your `server.cfg` looks similar to this:
 
 ```diff title="server.cfg"
 ensure oxmysql
@@ -59,4 +80,9 @@ ensure spawnmanager
 
 ensure ox_lib
 ensure es_extended
+ensure illenium-appearance
+ensure esx_identity        #optional
+ensure esx_multicharacter  #optional
+ensure ox_inventory        #optional
+ensure npwd                #optional
 ```

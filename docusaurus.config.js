@@ -58,9 +58,9 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "tutorials",
-        path: "tutorials",
-        routeBasePath: "tutorials",
+        id: "guides",
+        path: "guides",
+        routeBasePath: "guides",
       },
     ],
     async function myPlugin(context, options) {
@@ -93,9 +93,9 @@ const config = {
             type: "docSidebar",
             docId: "database",
             sidebarId: "defaultSidebar",
-            docsPluginId: "tutorials",
+            docsPluginId: "guides",
             position: "left",
-            label: "Tutorials",
+            label: "Guides",
           },
           {
             type: "docSidebar",
