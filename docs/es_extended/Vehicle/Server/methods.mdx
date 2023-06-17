@@ -3,6 +3,27 @@ title: Vehicle Methods
 sidebar_label: Methods
 ---
 
+## xVehicle.setCoords
+
+Sets the vehicle's coordinates and heading.
+
+```lua
+xVehicle.setCoords(coords)
+```
+
+- coords: `table` or `vector3` or `vector4`
+
+## xVehicle.getCoords
+
+Gets the vehicle's coordinates and heading
+
+```lua
+xVehicle.getCoords(vector)
+```
+
+- vector?: `boolean` (if true, it returns the vehicle coords as vector4, else it returns the coords as table)
+- @return `vector4` or `table`
+
 ## xVehicle.set
 
 Sets the vehicle's **non-persistant** data for key to the given value which will be removes on vehicle deletion. Similar to statebag data.
@@ -23,6 +44,7 @@ xVehicle.get(key)
 ```
 
 - key?: `string` (if omitted, it returns all data)
+- @return `any`
 
 ## xVehicle.setMetadata
 
@@ -32,10 +54,10 @@ Sets the vehicle's **persistant** data for key to the given value which will be 
 xVehicle.setMetadata(key, value, subValue)
 ```
 
-- key string
-- value? string | number | table
-- subValue? any
-- @return boolean (indicating whether the action was successful or not)
+- key: `string`
+- value?: `string` or `number` or `table`
+- subValue?: `any`
+- @return `boolean` (indicating whether the action was successful or not)
 
 ## xVehicle.getMetadata
 
@@ -46,8 +68,8 @@ xVehicle.getMetadata(key, subKey)
 ```
 
 - key?: `string` (if omitted, it returns all data)
-- subKey? any
-- @return any
+- subKey?: `any`
+- @return `any`
 
 ## xVehicle.delete
 
@@ -57,7 +79,7 @@ Removes/despawns the vehicle from the game world, optionally removes its entry f
 xVehicle.delete(removeFromDb)
 ```
 
-- removeFromDb? `boolean` (delete the entry from database as well or no - defaults to **false** if omitted)
+- removeFromDb?: `boolean` (delete the entry from database as well or no - defaults to **false** if omitted)
 
 ## xVehicle.setStored
 
@@ -78,7 +100,7 @@ Updates the vehicle's owner, matching a xPlayer's `identifier` or nil to set it 
 xVehicle.setOwner(newOwner)
 ```
 
-- newOwner? string
+- newOwner?: `string`
 
 ## xVehicle.setGroup
 
@@ -88,7 +110,7 @@ Updates the vehicle's group, which can be used for garage restrictions, unowned 
 xVehicle.setGroup(newGroup)
 ```
 
-- newGroup? string
+- newGroup?: `string`
 
 ## xVehicle.setPlate
 
