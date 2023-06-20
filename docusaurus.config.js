@@ -165,6 +165,10 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       */
+      footer: {
+        style: "dark",
+        copyright: `Copyright © ${new Date().getFullYear()} ESX-Overextended.`,
+      },
       docs: {
         sidebar: {
           hideable: true,
