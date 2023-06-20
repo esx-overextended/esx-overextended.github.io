@@ -1,10 +1,7 @@
-# txAdmin server creator
-
-# **Do Not Follow This Guidline As it is Not Complete Yet**
-
-# **Do Not Follow This Guidline As it is Not Complete Yet**
-
-# **Do Not Follow This Guidline As it is Not Complete Yet**
+---
+title: txAdmin Server Creator
+sidebar_label: txAdmin server creator
+---
 
 This Guide will show the quick and easy way to setup a FiveM server using txAdmin!
 
@@ -52,7 +49,27 @@ https://raw.githubusercontent.com/esx-overextended/txAdminRecipe/main/recipe.yam
 - It will then ask for your [Cfx.re licence key](https://keymaster.fivem.net/).
 - Once entered, press `Run Recipe`.
 - This will start downloading and installing the resource files into the server!
-- once it has finished, click `Save & Run Server`.
-- you will then be taken to the txAdmin dashboard, and can load into your server!
+- Once it has finished, click `Save & Run Server`.
 
 _P.S. Keep in mind first time loading of the server takes more as it has to configure the resources, so let the server do its job and read/load the resources properly..._
+
+## Step 5: Executing ESX-Overextended's Triggers SQL File
+
+:::caution
+
+While almost all of the required sql files of the recipe resources is imported into the database automatically, there is only 1 sql file that you need to manually import.
+
+:::
+
+- Open the `resources/[core]/es_extended` directory of your server.
+- Find the `esx-trigger.sql` file.
+- Right click on it and open it with a text editor of your choice so you can see its content.
+- Copy all of the file's content.
+- Open HeidiSQL.
+- Locate a tab called `Query` and paste the copied SQL content there.
+- Find the name of your recently generated database name (it usually starts with `ESXOverextended_`) and click on it.
+- In the toolbar section of HeidiSQL on top, find a button with play icon on it. Click it to execute/import the query you just copied & pasted.
+
+## Step 6
+
+- You can now load into your server and enjoy!
