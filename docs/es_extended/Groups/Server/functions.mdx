@@ -1,0 +1,58 @@
+---
+title: Groups
+sidebar_label: Functions
+---
+
+## ESX.GetGroup
+
+Gets the group object data for the specified group name.
+
+```lua
+ESX.GetGroup(groupName)
+```
+
+- groupName: `string`
+- return `xGroup?`
+
+## ESX.GetGroups
+
+Gets all of the group objects data.
+
+```lua
+ESX.GetGroups()
+```
+
+- return `<string, xGroup>` (array containing instances of xGroup)
+
+## ESX.DoesGroupExist
+
+Checks if a group with the specified name and grade exist.
+
+```lua
+ESX.DoesGroupExist(groupName, groupGrade)
+```
+
+- groupName: `string`
+- groupGrade: `number`
+- return `boolean`
+
+## ESX.GetPlayersByGroup
+
+Returns an array containing instances of all xPlayers with the specified group name and optionally group grade.
+
+```lua
+ESX.GetPlayersByGroup(groupName, groupGrade)
+```
+
+- groupName: `string`
+- groupGrade?: `number` (if it's provided and not nil, it only returns players with the specified group grade)
+- return `<number, xPlayer>` or `xPlayer[]` (array containing instances of xPlayer)
+- return `number` (number of matched xPlayers)
+
+## ESX.RefreshGroups
+
+Refreshes/Loads the group objects from database
+
+```lua
+ESX.RefreshGroups()
+```

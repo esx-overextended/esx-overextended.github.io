@@ -1,0 +1,32 @@
+---
+title: Groups
+sidebar_label: Groups
+---
+
+:::info
+All **jobs** and **groups** entries from database and also indices from es_extended's **Config.AdminGroups** become Group object.
+:::
+
+## xGroup Object Type
+
+```lua
+---@class xGroup (group object)
+---@field name string group name
+---@field label string job label
+---@field principal string (it's like "group.[name]")
+---@field grades table<string, xGroupGrade>
+```
+
+## xGroupGrade Object Type
+
+```lua
+---@class xGroupGrade (group's grade object)
+---@field group_name `string` group name
+---@field grade `number` grade
+---@field label `string` grade label
+---@field is_boss `boolean` grade access to boss-level actions
+```
+
+:::tip
+All known/loaded group objects can be obtained from `GlobalState.Groups` from both server and client.
+:::

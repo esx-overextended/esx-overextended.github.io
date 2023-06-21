@@ -1,0 +1,31 @@
+---
+title: Groups
+sidebar_label: Events
+---
+
+## esx:setGroups
+
+Triggered after any change in the client character's groups.
+
+```lua
+AddEventHandler("esx:setGroups", function(newGroups, lastGroups)
+end)
+```
+
+## esx:addGroup
+
+Triggered after new addition of a group to the client character's groups.
+
+```lua
+AddEventHandler("esx:addGroup", function(groupName, groupGrade)
+end)
+```
+
+## esx:removeGroup
+
+Triggered after new removal of a group from the client character's groups.
+
+```lua
+AddEventHandler("esx:removeGroup", function(groupName, groupGrade)
+end)
+```
