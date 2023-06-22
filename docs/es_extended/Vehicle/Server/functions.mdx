@@ -1,0 +1,96 @@
+---
+title: Vehicle Related Functions
+sidebar_label: Functions
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## ESX.GetVehicle
+
+Return an instance of xVehicle for the given entity id.
+
+```lua
+---@param vehicleEntity number | integer
+---@return xVehicle?
+ESX.GetVehicle(vehicleEntity)
+```
+
+```lua
+local xVehicle = ESX.GetVehicle(entity)
+print(json.encode(xVehicle, { indent = true }))
+```
+
+## ESX.GetVehicles
+
+Returns an array containing all instance of xVehicles.
+
+```lua
+---@return xVehicle[]
+ESX.GetVehicles()
+```
+
+```lua
+local xVehicles = ESx.GetVehicles()
+
+for i = 1, #xVehicles do
+    local xVehicle = xVehicles[i]
+    print(json.encode(xVehicle, { indent = true }))
+end
+```
+
+## ESX.CreateVehicle
+
+Spawns a vehicle and returns the instance of xVehicle.  
+If the first argument is a number, it will attempt to spawn a vehicle from the database with a matching id.
+
+```lua
+local vehicleId = MySQL.scalar.await("SELECT id FROM owned_vehicles WHERE owner = ? LIMIT 1", { xPlayer.getIdentifier() })
+
+if vehicleId then
+    local coords = xPlayer.getCoords()
+    local xVehicle = ESX.CreateVehicle(vehicleId, coords, coords.heading)
+
+    if xVehicle then
+        print(json.encode(xVehicle, { indent = true }))
+    end
+end
+```
+
+If the first argument is a table and the `owner` property is a player identifier, or the `group` property is a string, the vehicle will be added to the database.  
+Setting the owner as false creates a non-persistent vehicle.
+
+<Tabs queryString="createVehicle">
+<TabItem value="player-owned" label="Player-Owned Persistent Vehicle" default>
+
+```lua
+local coords = xPlayer.getCoords()
+local vehicle = ESX.CreateVehicle({
+    model = "italirsx",
+    owner = xPlayer.getIdentifier(),
+}, coords, coords.heading)
+```
+
+</TabItem>
+<TabItem value="group-owned" label="Group-Owned Persistent Vehicle" default>
+
+```lua
+local coords = xPlayer.getCoords()
+local vehicle = ESX.CreateVehicle({
+    model = "italirsx",
+    group = "police",
+}, coords, coords.heading)
+```
+
+</TabItem>
+<TabItem value="non-persistent" label="Non-Persistent Vehicle" default>
+
+```lua
+local coords = xPlayer.getCoords()
+local vehicle = ESX.CreateVehicle({
+    model = "italirsx",
+}, coords, coords.heading)
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,125 @@
+---
+title: Player Methods
+sidebar_label: Methods
+---
+
+## xPlayer.triggerEvent
+
+Triggers a client event for the player.
+
+```lua
+xPlayer.triggerEvent(eventName, ...)
+```
+
+- eventName: `string` name of the client event
+- ... : `any`
+
+## xPlayer.triggerSafeEvent
+
+Triggers a safe event for the player.
+
+```lua
+xPlayer.triggerSafeEvent(eventName, eventData, eventOptions)
+```
+
+- eventName: `string` (name of the safe event)
+- eventData?: `table` (data to send through the safe event)
+- eventOptions?: `CEventOptions` (whether server, client, or both should be triggered - **defaults to `{server = false, client = true}`**)
+
+## xPlayer.setCoords
+
+Sets the player's coordinates.
+
+```lua
+xPlayer.setCoords(coords)
+```
+
+- coords: `table` or `vector3` or `vector4`
+
+## xPlayer.getCoords
+
+Gets the player's coordinates.
+
+```lua
+xPlayer.getCoords(vector)
+```
+
+- vector?: `boolean` (whether to return the player coords as vector4 or as table)
+- return `vector4` or `table`
+
+## xPlayer.kick
+
+Kicks the player out with an optional reason.
+
+```lua
+xPlayer.kick(reason)
+```
+
+- reason?: `string`
+
+## xPlayer.hasGroup
+
+Checks if the player has the specified group.
+
+```lua
+xPlayer.hasGroup(groupName, groupGrade)
+```
+
+- groupName: `string`
+- groupGrade?: `integer` or `number`
+- return `boolean`
+- return `integer` or `number` or `nil` (returns the player's group grade in case `groupGrade` is omitted)
+
+## xPlayer.addGroup
+
+Adds the specified group to the player's groups
+
+```lua
+xPlayer.addGroup(groupName, groupGrade)
+```
+
+- groupName: `string`
+- groupGrade: `integer` or `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeGroup
+
+Removes the specified group from the player's groups.
+
+```lua
+xPlayer.removeGroup(groupName)
+```
+
+- groupName: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getGroups
+
+Gets all of the player's groups.
+
+```lua
+xPlayer.getGroups()
+```
+
+- return `table<string, number>`
+
+## xPlayer.setGroup
+
+Sets the player's permission/user/admin group.
+
+```lua
+xPlayer.setGroup(newGroup)
+```
+
+- newGroup: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getGroup
+
+Gets the player's permission/user/admin group.
+
+```lua
+xPlayer.getGroup()
+```
+
+- return `string`
