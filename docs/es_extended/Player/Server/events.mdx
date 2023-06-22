@@ -1,0 +1,31 @@
+---
+title: Player Related Events
+sidebar_label: Events
+---
+
+## esx:setGroups
+
+Triggered after any change in xPlayer groups.
+
+```lua
+AddEventHandler("esx:setGroups", function(source, newGroups, lastGroups)
+end)
+```
+
+## esx:addGroup
+
+Triggered after new addition of a group to xPlayer.
+
+```lua
+AddEventHandler("esx:addGroup", function(source, groupName, groupGrade)
+end)
+```
+
+## esx:removeGroup
+
+Triggered after new removal of a group from xPlayer.
+
+```lua
+AddEventHandler("esx:removeGroup", function(source, groupName, groupGrade)
+end)
+```

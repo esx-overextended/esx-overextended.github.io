@@ -57,8 +57,11 @@ if vehicleId then
 end
 ```
 
-If the first argument is a table and the `owner` property is a player identifier, or the `group` property is a string, the vehicle will be added to the database.  
-Setting the owner as false creates a non-persistent vehicle.
+:::info
+If the first argument is a table and the `owner` property is a player identifier, or the `group` property is a string, the vehicle will be added to the database.
+
+Omitting both `owner` and `group` properties together, creates a non-persistent vehicle.
+:::
 
 <Tabs queryString="createVehicle">
 <TabItem value="player-owned" label="Player-Owned Persistent Vehicle" default>
