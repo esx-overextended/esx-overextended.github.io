@@ -45,7 +45,7 @@ xPlayer.getCoords(vector)
 ```
 
 - vector?: `boolean` (whether to return the player coords as vector4 or as table)
-- return `vector4` or `table`
+- return? `vector4` or `table`
 
 ## xPlayer.kick
 
@@ -57,6 +57,71 @@ xPlayer.kick(reason)
 
 - reason?: `string`
 
+## xPlayer.setMoney
+
+Sets the player's money to the specified value.
+
+```lua
+xPlayer.setMoney(money)
+```
+
+- money: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getMoney
+
+Gets the player's money value.
+
+```lua
+xPlayer.getMoney()
+```
+
+- return `number`
+
+## xPlayer.addMoney
+
+Adds the specified value to the player's money.
+
+```lua
+xPlayer.addMoney(money, reason)
+```
+
+- money: `number`
+- reason?: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeMoney
+
+Removes the specified value from the player's money.
+
+```lua
+xPlayer.removeMoney(money, reason)
+```
+
+- money: `number`
+- reason?: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getIdentifier
+
+Gets the player's identifier.
+
+```lua
+xPlayer.getIdentifier()
+```
+
+- return `string`
+
+## xPlayer.getLicense
+
+Gets the player's Rockstar license.
+
+```lua
+xPlayer.getLicense()
+```
+
+- return `string`
+
 ## xPlayer.hasGroup
 
 Checks if the player has the specified group.
@@ -66,9 +131,9 @@ xPlayer.hasGroup(groupName, groupGrade)
 ```
 
 - groupName: `string`
-- groupGrade?: `integer` or `number`
+- groupGrade?: `number`
 - return `boolean`
-- return `integer` or `number` or `nil` (returns the player's group grade in case `groupGrade` is omitted)
+- return? `number` (returns the player's group grade if exists in case `groupGrade` is omitted)
 
 ## xPlayer.addGroup
 
@@ -79,7 +144,7 @@ xPlayer.addGroup(groupName, groupGrade)
 ```
 
 - groupName: `string`
-- groupGrade: `integer` or `number`
+- groupGrade: `number`
 - return `boolean` (whether the action was successful or not)
 
 ## xPlayer.removeGroup
@@ -123,3 +188,220 @@ xPlayer.getGroup()
 ```
 
 - return `string`
+
+## xPlayer.set
+
+Sets the specified value to the key variable for the player.
+
+```lua
+xPlayer.set(key, value)
+```
+
+- key: `string`
+- value: `any`
+
+## xPlayer.get
+
+Gets the value of the specified key variable from the player, returning the entire table if key is omitted.
+
+```lua
+xPlayer.get(key)
+```
+
+- key?: `string`
+- return `any`
+
+## xPlayer.getAccounts
+
+Gets all of the player's accounts.
+
+```lua
+xPlayer.getAccounts(minimal)
+```
+
+- minimal?: `boolean`
+- return `table`
+
+## xPlayer.getInventory
+
+Gets all of the player's inventory data.
+
+```lua
+xPlayer.getInventory(minimal)
+```
+
+- minimal?: `boolean`
+- return `table`
+
+## xPlayer.getLoadout
+
+Gets all of the player's loadout data.
+
+```lua
+xPlayer.getLoadout(minimal)
+```
+
+- minimal?: `boolean`
+- return `table`
+
+## xPlayer.getName
+
+Gets the player's name.
+
+```lua
+xPlayer.getName()
+```
+
+- return `string`
+
+## xPlayer.setName
+
+Sets the player's name.
+
+```lua
+xPlayer.setName(newName)
+```
+
+- newName: `string`
+
+## xPlayer.setAccountMoney
+
+Sets money for the specified account of the player.
+
+```lua
+xPlayer.setAccountMoney(accountName, money, reason)
+```
+
+- accountName: `string`
+- money: `number`
+- reason?: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.addAccountMoney
+
+Adds money to the specified account of the player.
+
+```lua
+xPlayer.addAccountMoney(accountName, money, reason)
+```
+
+- accountName: `string`
+- money: `number`
+- reason?: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeAccountMoney
+
+Removes money from the specified account of the player.
+
+```lua
+xPlayer.removeAccountMoney(accountName, money, reason)
+```
+
+- accountName: `string`
+- money: `number`
+- reason?: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getInventoryItem
+
+Gets the specified item data from the player's inventory.
+
+```lua
+xPlayer.getInventoryItem(itemName)
+```
+
+- itemName: `string`
+- return? `table`
+
+## xPlayer.addInventoryItem
+
+Adds the specified item to the player's inventory.
+
+```lua
+xPlayer.addInventoryItem(itemName, itemCount)
+```
+
+- itemName: `string`
+- itemCount?: `number` (**defaults to 1 if omitted**)
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeInventoryItem
+
+Removes the specified item from the player's inventory.
+
+```lua
+xPlayer.removeInventoryItem(itemName, itemCount)
+```
+
+- itemName: `string`
+- itemCount?: `number` (**defaults to 1 if omitted**)
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.setInventoryItem
+
+Set the specified item count in the player's inventory.
+
+```lua
+xPlayer.setInventoryItem(itemName, itemCount)
+```
+
+- itemName: `string`
+- itemCount: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getWeight
+
+Gets the player's inventory weight.
+
+```lua
+xPlayer.getWeight()
+```
+
+- return `number`
+
+## xPlayer.getMaxWeight
+
+Gets the player's maximum inventory weight.
+
+```lua
+xPlayer.getMaxWeight()
+```
+
+- return `number`
+
+## xPlayer.setMaxWeight
+
+Sets the player's maximum inventory weight.
+
+```lua
+xPlayer.setMaxWeight(newWeight)
+```
+
+- newWeight: `number`
+
+## xPlayer.canCarryItem
+
+Checks if the player does have enough space in inventory to carry the specified item count(s).
+
+```lua
+xPlayer.canCarryItem(itemName, itemCount)
+```
+
+- itemName: `string`
+- itemCount: `number`
+- return `boolean`
+
+## xPlayer.canSwapItem
+
+Checks if 2 items with the specified counts can be swapped in the player's inventory based on max inventory weight.
+
+```lua
+xPlayer.canSwapItem(firstItem, firstItemCount, testItem, testItemCount)
+```
+
+- firstItem: `string`
+- firstItemCount: `number`
+- testItem: `string`
+- testItemCount: `number`
+- return `boolean`
