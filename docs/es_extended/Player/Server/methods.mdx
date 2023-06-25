@@ -754,33 +754,53 @@ xPlayer.setRoutingBucket(bucketId)
 - bucketId: `number`
 - return `boolean` (whether the action was successful or not)
 
-## xPlayer.registerMethod
+## xPlayer.setField
+
+Sets the value of the specified field for the xPlayer object. If a field with the same name already exist, its value will be overrided.
+
+```lua
+xPlayer.setField(fieldName, value)
+```
+
+- fieldName: `string`
+- value: `number` or `string` or `boolean` or `table`
+- return `boolean` (whether the field registration was successful or not)
+
+## xPlayer.setMethod
 
 Adds a new method/function to the current xPlayer object. If a method with the same name already exist, it will be overrided.
 
 ```lua
-xPlayer.registerMethod(fnName, fn)
+xPlayer.setMethod(fnName, fn)
 ```
 
 - fnName: `string`
 - fn: `function`
 - return `boolean` (whether the method registration was successful or not)
 
-:::tip
+:::info
 
-#### Example using `xPlayer.registerMethod` function
+#### Example using `xPlayer.setMethod` function
 
 ```lua
+local xPlayer = ESX.GetPlayerFromId(1)
+
 -- registering a new method called "customCheck"
-xPlayer.registerMethod("customCheck", function(self)
+xPlayer.setMethod("customCheck", function(self)
     return function(firstParameter)
         print(("This is xPlayer(%s)'s 'customCheck' method being triggered"):format(self.source))
         print(("The parameter passed in the 'customCheck' method is '%s'"):format(firstParameter))
     end
 end)
 
+-- reloading the xPlayer object after new method is registered
+xPlayer = ESX.GetPlayerFromId(xPlayer.source)
+
 -- calling the new registered method
 xPlayer.customCheck("hello from customCheck")
 ```
 
+_p.s. In this way of registering a new method, **only** xPlayer object of player(1) will have the `customCheck` method registered for it!_
+
+_could be useful in scenarios when your server has multiple gamemodes/lobbies setup and you don't want to populate all player objects with the new method._
 :::
