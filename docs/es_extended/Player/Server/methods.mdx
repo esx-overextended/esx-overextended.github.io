@@ -222,6 +222,17 @@ xPlayer.getAccounts(minimal)
 - minimal?: `boolean`
 - return `table`
 
+## xPlayer.getAccount
+
+Gets the specified account's data of the player.
+
+```lua
+xPlayer.getAccount(accountName)
+```
+
+- accountName?: `string`
+- return? `table`
+
 ## xPlayer.getInventory
 
 Gets all of the player's inventory data.
@@ -405,3 +416,370 @@ xPlayer.canSwapItem(firstItem, firstItemCount, testItem, testItemCount)
 - testItem: `string`
 - testItemCount: `number`
 - return `boolean`
+
+## xPlayer.getJob
+
+Gets the player's job object.
+
+```lua
+xPlayer.getJob()
+```
+
+- return `table`
+
+## xPlayer.setJob
+
+Sets job for the player.
+
+```lua
+xPlayer.setJob(job, grade, duty)
+```
+
+- job: `string`
+- grade: `number`
+- duty?: `boolean` (if omitted, it will use the job's default duty state)
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getDuty
+
+Gets the player's job duty state.
+
+```lua
+xPlayer.getDuty()
+```
+
+- return `boolean`
+
+## xPlayer.setDuty
+
+Sets the player's job duty state.
+
+```lua
+xPlayer.setDuty(duty)
+```
+
+- duty: `boolean`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.addWeapon
+
+Adds a weapon with the specified ammo to the player's loadout.
+
+```lua
+xPlayer.addWeapon(weaponName, ammo)
+```
+
+- weaponName: `string`
+- ammo: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeWeapon
+
+Removes the specified weapon from the player's loadout.
+
+```lua
+xPlayer.removeWeapon(weaponName)
+```
+
+- weaponName: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.addWeaponComponent
+
+Adds a specific component to the player's weapon.
+
+```lua
+xPlayer.addWeaponComponent(weaponName, weaponComponent)
+```
+
+- weaponName: `string`
+- weaponComponent: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeWeaponComponent
+
+Removes the specified weapon component from the player's loadout.
+
+```lua
+xPlayer.removeWeaponComponent(weaponName, weaponComponent)
+```
+
+- weaponName: `string`
+- weaponComponent: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.updateWeaponAmmo
+
+Sets ammo of the player's specified weapon.
+
+```lua
+xPlayer.updateWeaponAmmo(weaponName, ammoCount)
+```
+
+- weaponName: `string`
+- ammoCount: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.addWeaponAmmo
+
+Adds ammo to the player's specified weapon.
+
+```lua
+xPlayer.addWeaponAmmo(weaponName, ammoCount)
+```
+
+- weaponName: `string`
+- ammoCount: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.removeWeaponAmmo
+
+Removes ammo from the player's specified weapon.
+
+```lua
+xPlayer.removeWeaponAmmo(weaponName, ammoCount)
+```
+
+- weaponName: `string`
+- ammoCount: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.setWeaponTint
+
+Sets tint of the player's specified weapon.
+
+```lua
+xPlayer.setWeaponTint(weaponName, weaponTintIndex)
+```
+
+- weaponName: `string`
+- weaponTintIndex: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getWeaponTint
+
+Gets the tint index of the player's specified weapon.
+
+```lua
+xPlayer.getWeaponTint(weaponName)
+```
+
+- weaponName: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.hasWeaponComponent
+
+Checks if player has the specified component for the weapon.
+
+```lua
+xPlayer.hasWeaponComponent(weaponName, weaponComponent)
+```
+
+- weaponName: `string`
+- weaponComponent: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.hasWeapon
+
+Checks if the specified weapon can be found in the player's loadout.
+
+```lua
+xPlayer.hasWeapon(weaponName)
+```
+
+- weaponName: `string`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.hasItem
+
+Checks if the specified item can be found in the player's inventory.
+
+```lua
+xPlayer.hasItem(itemName)
+```
+
+- itemName: `string`
+- return `boolean`
+- return? `number` (returns `nil` if first return data is `false`)
+
+## xPlayer.getWeapon
+
+Gets the specified weapon data from player's loadout if it exists.
+
+```lua
+xPlayer.getWeapon(itemName)
+```
+
+- weaponName: `string`
+- return `false` or `number`
+- return? `table` (returns `nil` if first return data is `false`)
+
+## xPlayer.showNotification
+
+Shows a notification to the player.
+
+```lua
+xPlayer.showNotification(message, type, duration, extra)
+```
+
+- message: `string` or `table` (if `table` is passed, the first index reflects the message title and the second index reflects the message description)
+- type?: `"inform"` or `"error"` or `"success"` or `"warning"` (**defaults to `"inform"` if no value is provided**)
+- duration?: `number` (**defaults to `3000` if no value is provided**)
+- extra?: `table` (extra properties related to ox_lib notify can be found [here](https://overextended.dev/ox_lib/Modules/Interface/Client/notify))
+
+## xPlayer.showHelpNotification
+
+Shows a help-type notification to the player.
+
+```lua
+xPlayer.showHelpNotification(message, thisFrame, beep, duration)
+```
+
+- message: `string`
+- thisFrame: `boolean`
+- beep: `boolean`
+- duration: `number`
+
+## xPlayer.getMetadata
+
+Gets the player's specified metadata. Returns all metadatas if the key/index is omitted.
+
+```lua
+xPlayer.getMetadata(index, subIndex)
+```
+
+- index?: `string`
+- subIndex?: `string` or `table`
+- return? `string` or `table` or `nil`
+
+## xPlayer.setMetadata
+
+Sets value of the specified metadata key/index of the player's.
+
+```lua
+xPlayer.setMetadata(index, value, subValue)
+```
+
+- index: `string`
+- value?: `string` or `number` or `table`
+- subValue?: `any`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.getInScopePlayers
+
+Gets a table including all instances of players ids that are in-scope/in-range with the current player.
+
+```lua
+xPlayer.getInScopePlayers(includeSelf)
+```
+
+- includeSelf?: `boolean` (include the current player within the return data or not - **defaults to false**)
+- return? `table<number, playerId>` or `nil`
+
+## xPlayer.isInPlayerScope
+
+Checks if the current player is inside the scope/range of the target player id.
+
+```lua
+xPlayer.isInPlayerScope(targetId)
+```
+
+- targetId?: `number`
+- return? `boolean`
+
+## xPlayer.isPlayerInScope
+
+Checks if the target player id is inside the scope/range of the current player.
+
+```lua
+xPlayer.isPlayerInScope(targetId)
+```
+
+- targetId?: `number`
+- return? `boolean`
+
+## xPlayer.triggerScopedEvent
+
+Triggers a client event for all players that are in-scope/in-range with the current player.
+
+```lua
+xPlayer.triggerScopedEvent(eventName, includeSelf, ...)
+```
+
+- eventName: `string` (name of the client event)
+- includeSelf?: `boolean` (trigger the event for the current player - **defaults to `false`**)
+- ... : `any`
+
+## xPlayer.triggerSafeScopedEvent
+
+Triggers a safe event for all players that are in-scope/in-range with the current player.
+
+```lua
+xPlayer.triggerSafeScopedEvent(eventName, includeSelf, eventData, eventOptions)
+```
+
+- eventName: `string` (name of the safe event)
+- includeSelf?: `boolean` (trigger the event for the current player as well or not - **defaults to `false`**)
+- eventData?: `table` (data to send through the safe event)
+- eventOptions?: `table:CEventOptions` (data to define whether server, client, or both should be triggered - **defaults to `{ server = false, client = true }`**)
+
+## xPlayer.getRoutingBucket
+
+Gets the routing bucket id that the player is inside.
+
+```lua
+xPlayer.getRoutingBucket()
+```
+
+- return `number`
+
+## xPlayer.getRoutingBucket
+
+Gets the routing bucket id that the player is inside.
+
+```lua
+xPlayer.getRoutingBucket()
+```
+
+- return `number`
+
+## xPlayer.setRoutingBucket
+
+Adds the player to the specified routing bucket id.
+
+```lua
+xPlayer.setRoutingBucket(bucketId)
+```
+
+- bucketId: `number`
+- return `boolean` (whether the action was successful or not)
+
+## xPlayer.registerMethod
+
+Adds a new method/function to the current xPlayer object. If a method with the same name already exist, it will be overrided.
+
+```lua
+xPlayer.registerMethod(fnName, fn)
+```
+
+- fnName: `string`
+- fn: `function`
+
+:::tip
+
+#### Example using `xPlayer.registerMethod` function
+
+```lua
+-- registering a new method called "customCheck"
+xPlayer.registerMethod("customCheck", function(self)
+    return function(firstParameter)
+        print(("This is xPlayer(%s)'s 'customCheck' method being triggered"):format(self.source))
+        print(("The parameter passed in the 'customCheck' method is '%s'"):format(firstParameter))
+    end
+end)
+
+-- calling the new registered method
+xPlayer.customCheck("hello from customCheck")
+```
+
+:::
