@@ -1,0 +1,37 @@
+---
+title: Player Related Functions
+sidebar_label: Functions
+---
+
+## ESX.GetPlayerData
+
+Returns all of the player data.
+
+```lua
+ESX.GetPlayerData()
+```
+
+- return? `table`
+
+:::info
+
+#### Example using `ESX.GetPlayerData` function
+
+```lua
+local playerData = ESX.GetPlayerData()
+print(json.encode(playerData, { indent = true }))
+```
+
+:::
+
+:::tip
+_if your script uses `@es_extended/imports.lua` in fxmanifest, you can also get the player data by calling `ESX.PlayerData` as well_
+
+#### Example using `ESX.PlayerData`
+
+```lua
+local playerData = ESX.PlayerData
+print(json.encode(playerData, { indent = true }))
+```
+
+:::
