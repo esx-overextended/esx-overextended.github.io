@@ -122,3 +122,54 @@ xVehicle.setPlate(newPlate)
 ```
 
 - newPlate: `string`
+
+## xVehicle.setField
+
+Sets the value of the specified field for the xVehicle object. If a field with the same name already exist, its value will be overrided.
+
+```lua
+xVehicle.setField(fieldName, value)
+```
+
+- fieldName: `string`
+- value: `number` or `string` or `boolean` or `table`
+- return `boolean` (whether the field registration was successful or not)
+
+## xVehicle.setMethod
+
+Adds a new method/function to the current xVehicle object. If a method with the same name already exist, it will be overrided.
+
+```lua
+xVehicle.setMethod(fnName, fn)
+```
+
+- fnName: `string`
+- fn: `function`
+- return `boolean` (whether the method registration was successful or not)
+
+:::info
+
+#### Example using `xVehicle.setMethod` function
+
+```lua
+local xVehicle = ESX.GetVehicle(65535)
+
+-- registering a new method called "customCheck"
+xVehicle.setMethod("customCheck", function(self)
+    return function(firstParameter)
+        print(("This is xVehicle(%s)'s 'customCheck' method being triggered"):format(self.entity))
+        print(("The parameter passed in the 'customCheck' method is '%s'"):format(firstParameter))
+    end
+end)
+
+-- reloading the xVehicle object after new method is registered
+xVehicle = ESX.GetVehicle(xVehicle.entity)
+
+-- calling the new registered method
+xVehicle.customCheck("hello from customCheck")
+```
+
+_p.s. In this way of registering a new method, **only** xVehicle object of vehicle(65535) will have the `customCheck` method registered for it!_
+
+_could be useful in scenarios when you don't want to populate all vehicle objects with the new method._
+:::

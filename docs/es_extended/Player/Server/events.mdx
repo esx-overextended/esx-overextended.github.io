@@ -3,9 +3,27 @@ title: Player Related Events
 sidebar_label: Events
 ---
 
+## esx:setJob
+
+Triggered after any change in xPlayer's job.
+
+```lua
+AddEventHandler("esx:setJob", function(source, newJob, lastJob)
+end)
+```
+
+## esx:setDuty
+
+Triggered after any change in xPlayer's job duty state.
+
+```lua
+AddEventHandler("esx:setDuty", function(source, dutyState)
+end)
+```
+
 ## esx:setGroups
 
-Triggered after any change in xPlayer groups.
+Triggered after any change in xPlayer's groups.
 
 ```lua
 AddEventHandler("esx:setGroups", function(source, newGroups, lastGroups)

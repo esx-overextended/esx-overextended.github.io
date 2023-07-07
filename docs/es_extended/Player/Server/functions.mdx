@@ -3,4 +3,94 @@ title: Player Related Functions
 sidebar_label: Functions
 ---
 
---- **TODO**
+## ESX.GetPlayerFromId
+
+Returns an instance of xPlayer for the given player's server id.
+
+```lua
+ESX.GetPlayerFromId(serverId)
+```
+
+- serverId: `number`
+- return? `xPlayer`
+
+:::info
+
+#### Example using `ESX.GetPlayerFromId` function
+
+```lua
+local xPlayer = ESX.GetPlayerFromId(1)
+print(json.encode(xPlayer, { indent = true }))
+```
+
+:::
+
+## ESX.GetPlayerFromIdentifier
+
+Returns an instance of xPlayer for the given player's identifier.
+
+```lua
+ESX.GetPlayerFromIdentifier(identifier)
+```
+
+- identifier: `string`
+- return? `xPlayer`
+
+:::info
+
+#### Example using `ESX.GetPlayerFromIdentifier` function
+
+```lua
+local xPlayer = ESX.GetPlayerFromIdentifier("d89as12a5f9a0s5q1fa56all4a5s0b1j22hts3h45p")
+print(json.encode(xPlayer, { indent = true }))
+```
+
+:::
+
+## ESX.GetExtendedPlayers
+
+Returns an array containing all instance of xPlayers, optionally returns xPlayers with a specific property.
+
+```lua
+ESX.GetExtendedPlayers(key, value)
+```
+
+- key? `string`
+- value? `any`
+- return `xPlayer[]`
+
+:::info
+
+#### Example using `ESX.GetExtendedPlayers` function
+
+```lua
+-- Returns all instances of xPlayers
+local xPlayers = ESX.GetExtendedPlayers()
+
+for i = 1, #xPlayers do
+    local xPlayer = xPlayers[i]
+    print(json.encode(xPlayer, { indent = true }))
+end
+```
+
+```lua
+-- Returns all instances of xPlayers with police job
+local xPlayers = ESX.GetExtendedPlayers("job", "police")
+
+for i = 1, #xPlayers do
+    local xPlayer = xPlayers[i]
+    print(json.encode(xPlayer, { indent = true }))
+end
+```
+
+```lua
+-- Returns all instances of xPlayers with superadmin group/perm
+local xPlayers = ESX.GetExtendedPlayers("group", "superadmin")
+
+for i = 1, #xPlayers do
+    local xPlayer = xPlayers[i]
+    print(json.encode(xPlayer, { indent = true }))
+end
+```
+
+:::

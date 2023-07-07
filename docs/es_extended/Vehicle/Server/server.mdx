@@ -3,4 +3,31 @@ title: Vehicle
 sidebar_label: Server
 ---
 
---- **TODO**
+## xVehicle Object Type
+
+```lua
+---@class xVehicle
+---@field id? integer | number
+---@field owner? string | boolean
+---@field group? string | boolean
+---@field netId integer | number
+---@field entity integer | number
+---@field model string
+---@field plate string
+---@field vin string
+---@field script string
+---@field stored? boolean
+---@field set fun(key: string, value: any)
+---@field get fun(key?: string): any
+---@field delete fun(removeFromDb?: boolean)
+---@field setStored fun(value?: boolean, despawn?: boolean)
+---@field setOwner fun(newOwner?: string)
+---@field setGroup fun(newGroup?: string)
+---@field setPlate fun(newPlate: string)
+---@field getMetadata fun(index?: string, subIndex?: string | table): nil | string | table
+---@field setMetadata fun(index: string, value?: string | number | table, subValue?: any): boolean
+---@field getRoutingBucket fun(): routingBucket | nil
+---@field setRoutingBucket fun(bucketId: routingBucket): boolean
+---@field setField fun(fieldName: string, value: number | string | boolean | table): boolean
+---@field setMethod fun(fnName: string, fn: function): boolean
+```

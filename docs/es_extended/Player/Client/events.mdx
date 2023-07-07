@@ -3,6 +3,78 @@ title: Player Related Events
 sidebar_label: Events
 ---
 
+## esx:playerLoaded
+
+Triggered after load of the client character.
+
+```lua
+AddEventHandler("esx:playerLoaded", function(playerData, isNew, skin)
+end)
+```
+
+## esx:onPlayerLogout
+
+Triggered after logout of the client from its character.
+
+```lua
+AddEventHandler("esx:onPlayerLogout", function()
+end)
+```
+
+## esx:setAccountMoney
+
+Triggered after any change in the client character's specified account.
+
+```lua
+AddEventHandler("esx:setAccountMoney", function(account)
+end)
+```
+
+## esx:setAccountMoney
+
+Triggered after addition of an item to the client character's inventory.
+
+```lua
+AddEventHandler("esx:addInventoryItem", function(item, count, showNotification)
+end)
+```
+
+## esx:removeInventoryItem
+
+Triggered after removal of an item from the client character's inventory.
+
+```lua
+AddEventHandler("esx:removeInventoryItem", function(item, count, showNotification)
+end)
+```
+
+## esx:setMaxWeight
+
+Triggered after any change in the client character's max inventory weight that can be carried.
+
+```lua
+AddEventHandler("esx:setMaxWeight", function(newWeight)
+end)
+```
+
+## esx:setJob
+
+Triggered after any change in the client character's job.
+
+```lua
+AddEventHandler("esx:setJob", function(newJob, lastJob)
+end)
+```
+
+## esx:setDuty
+
+Triggered after any change in the client character's job duty state.
+
+```lua
+AddEventHandler("esx:setDuty", function(dutyState)
+end)
+```
+
 ## esx:setGroups
 
 Triggered after any change in the client character's groups.
@@ -27,5 +99,23 @@ Triggered after new removal of a group from the client character's groups.
 
 ```lua
 AddEventHandler("esx:removeGroup", function(groupName, groupGrade)
+end)
+```
+
+## esx:setMetadata
+
+Triggered after any change in the client character's metadata.
+
+```lua
+AddEventHandler("esx:setMetadata", function(newMetadata, lastMetadata)
+end)
+```
+
+## esx:setPlayerData
+
+Triggered after any change in the client character's player data.
+
+```lua
+AddEventHandler("esx:setPlayerData", function(key, newValue, lastValue)
 end)
 ```
