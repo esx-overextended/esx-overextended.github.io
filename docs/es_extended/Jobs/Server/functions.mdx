@@ -1,0 +1,256 @@
+---
+title: Jobs
+sidebar_label: Functions
+---
+
+## ESX.GetJob
+
+Gets the job object data for the specified job name.
+
+```lua
+ESX.GetJob(jobName)
+```
+
+- jobName: `string`
+- return `xJob?`
+
+## ESX.GetJobs
+
+Gets all of the job objects data.
+
+```lua
+ESX.GetJobs()
+```
+
+- return `<string, xJob>` (array containing instances of xJob)
+
+## ESX.DoesJobExist
+
+Checks if a job with the specified name and grade exist.
+
+```lua
+ESX.DoesJobExist(jobName, jobGrade)
+```
+
+- jobName: `string`
+- jobGrade: `number`
+- return `boolean`
+
+## ESX.GetPlayersByJobType
+
+Returns an array containing instances of all xPlayers with the specified job type and optionally job duty state.
+
+```lua
+ESX.GetPlayersByJobType(jobType, dutyState)
+```
+
+- jobType `string`
+- dutyState? `boolean` (if it's not omitted, it will only return players with the specified duty state)
+- return `xPlayer[]` (array containing instances of xPlayers)
+- return `integer` (number of returned xPlayer instances)
+
+:::info
+
+#### Example Usage
+
+```lua
+-- All on-duty players with "leo" job type
+local xPlayers, count = ESX.GetPlayersByJobType("leo", true)
+
+print(("%s players with %s job type are on-duty"):format(count, "leo"))
+
+for i = 1, count do
+    print(xPlayer.name)
+end
+```
+
+:::
+
+## ESX.RefreshJobs
+
+Refreshes/Loads the job objects from database
+
+```lua
+ESX.RefreshJobs()
+```
+
+## ESX.AddJob
+
+Adds a job or a table of jobs on runtime
+
+```lua
+ESX.AddJob(jobObject)
+```
+
+- jobObject `xJob` or `xJob[]`
+- return `boolean` (indicates whether the action was successful or not)
+- return `string` (the execution message)
+
+:::info
+
+#### Example Usage
+
+##### Adding a Single Job
+
+```lua
+local job = {
+    name = "JOB_NAME",
+    label = "JOB_LABEL",
+    default_duty = true or false,
+    grades = {
+        ["0"] = {name = "trainee", label = "Trainee", salary = 100, skin_male = {}, skin_female = {}},
+        ["1"] = {name = "experienced", label = "Experienced", salary = 150, skin_male = {}, skin_female = {}},
+        ["2"] = {name = "boss", label = "Manager", salary = 200, skin_male = {}, skin_female = {}},
+    }
+}
+
+local resultState, resultMessage = ESX.AddJob(job)
+print(resultState, resultMessage)
+```
+
+##### Adding Multiple Jobs
+
+```lua
+local jobs = {
+    {
+        name = "JOB_1_NAME",
+        label = "JOB_1_LABEL",
+        default_duty = true or false,
+        grades = {
+            ["0"] = {name = "trainee", label = "Trainee", salary = 100, skin_male = {}, skin_female = {}},
+            ["1"] = {name = "experienced", label = "Experienced", salary = 150, skin_male = {}, skin_female = {}},
+            ["2"] = {name = "boss", label = "Manager", salary = 200, skin_male = {}, skin_female = {}},
+        }
+    },
+    {
+        name = "JOB_2_NAME",
+        label = "JOB_2_LABEL",
+        default_duty = true or false,
+        grades = {
+            ["0"] = {name = "trainee", label = "Trainee", salary = 100, skin_male = {}, skin_female = {}},
+            ["1"] = {name = "experienced", label = "Experienced", salary = 150, skin_male = {}, skin_female = {}},
+            ["2"] = {name = "boss", label = "Manager", salary = 200, skin_male = {}, skin_female = {}},
+        }
+    }
+}
+
+local resultState, resultMessage = ESX.AddJob(jobs)
+print(resultState, resultMessage)
+```
+
+:::
+
+## ESX.UpdateJob
+
+Updates a job or a table of jobs on runtime
+
+```lua
+ESX.UpdateJob(jobObject)
+```
+
+- jobObject `xJob` or `xJob[]`
+- return `boolean` (indicates whether the action was successful or not)
+- return `string` (the execution message)
+
+:::info
+
+#### Example Usage
+
+##### Updating a Single Job
+
+_ for optional attributes `?` => if provided it will update it, and if not provided it will use the previously saved values\* _
+
+```lua
+local job = {
+    name = "JOB_NAME", -- mandatory
+    label = "JOB_LABEL", -- optional
+    default_duty = true or false, -- optional
+    grades = { -- optional
+        ["0"] = {name? = "trainee", label? = "Trainee", salary? = 100, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+        ["1"] = {name? = "experienced", label? = "Experienced", salary? = 150, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+        ["2"] = {name? = "boss", label? = "Manager", salary? = 200, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+    }
+}
+
+local resultState, resultMessage = ESX.UpdateJob(job)
+print(resultState, resultMessage)
+```
+
+##### Updating Multiple Jobs
+
+_ for optional attributes `?` => if provided it will update it, and if not provided it will use the previously saved values\* _
+
+```lua
+local jobs = {
+    {
+        name = "JOB_1_NAME", -- mandatory
+        label = "JOB_1_LABEL", -- optional
+        default_duty = true or false, -- optional
+        grades = { -- optional
+            ["0"] = {name? = "trainee", label? = "Trainee", salary? = 100, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+            ["1"] = {name? = "experienced", label? = "Experienced", salary? = 150, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+            ["2"] = {name? = "boss", label? = "Manager", salary? = 200, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+        }
+    },
+    {
+        name = "JOB_2_NAME", -- mandatory
+        label = "JOB_2_LABEL", -- optional
+        default_duty = true or false, -- optional
+        grades = { -- optional
+            ["0"] = {name? = "trainee", label? = "Trainee", salary? = 100, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+            ["1"] = {name? = "experienced", label? = "Experienced", salary? = 150, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+            ["2"] = {name? = "boss", label? = "Manager", salary? = 200, skin_male? = {}, skin_female? = {}}, -- all of the attributes are optional
+        }
+    }
+}
+
+local resultState, resultMessage = ESX.UpdateJob(jobs)
+print(resultState, resultMessage)
+```
+
+:::
+
+## ESX.RemoveJob
+
+Removes a job or a table of jobs on runtime
+
+```lua
+ESX.RemoveJob(jobObject)
+```
+
+- jobObject `xJob` or `xJob[]`
+- return `boolean` (indicates whether the action was successful or not)
+- return `string` (the execution message)
+
+:::info
+
+#### Example Usage
+
+##### Removing a Single Job
+
+```lua
+local job = {
+    name = "JOB_NAME"
+}
+
+local resultState, resultMessage = ESX.RemoveJob(job)
+print(resultState, resultMessage)
+```
+
+##### Removing Multiple Jobs
+
+```lua
+local jobs = {
+    {
+        name = "JOB_1_NAME"
+    },
+    {
+        name = "JOB_2_NAME"
+    }
+}
+
+local resultState, resultMessage = ESX.RemoveJob(jobs)
+print(resultState, resultMessage)
+```
+
+:::

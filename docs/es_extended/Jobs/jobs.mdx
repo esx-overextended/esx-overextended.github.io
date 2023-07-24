@@ -1,0 +1,31 @@
+---
+title: Jobs
+sidebar_label: Jobs
+---
+
+## xJob Object Type
+
+```lua
+---@class xJob (job object)
+---@field name string job name
+---@field label string job label
+---@field type string job type
+---@field default_duty boolean | 1 | 0 job default duty state
+---@field grades table<gradeKey, xJobGrade>
+```
+
+## xJobGrade Object Type
+
+```lua
+---@class xJobGrade (job's grade object)
+---@field name string grade name
+---@field label string grade label
+---@field salary number grade salary
+---@field offduty_salary number grade off-duty salary
+---@field skin_male table grade male skin
+---@field skin_female table grade female skin
+```
+
+:::tip
+All known/loaded job objects can be obtained from `GlobalState.Jobs` from both server and client.
+:::
