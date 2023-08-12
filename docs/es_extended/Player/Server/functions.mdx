@@ -25,6 +25,28 @@ print(json.encode(xPlayer, { indent = true }))
 
 :::
 
+## ESX.GetPlayerFromCid
+
+Returns an instance of xPlayer for the given character's id.
+
+```lua
+ESX.GetPlayerFromCid(cid)
+```
+
+- cid: `string`
+- return? `xPlayer`
+
+:::info
+
+#### Example using `ESX.GetPlayerFromCid` function
+
+```lua
+local xPlayer = ESX.GetPlayerFromCid("1J6ESX55M")
+print(json.encode(xPlayer, { indent = true }))
+```
+
+:::
+
 ## ESX.GetPlayerFromIdentifier
 
 Returns an instance of xPlayer for the given player's identifier.
