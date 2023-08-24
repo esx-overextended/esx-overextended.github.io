@@ -3,6 +3,15 @@ title: Player Related Events
 sidebar_label: Events
 ---
 
+## esx:playerLoaded
+
+Triggered when a xPlayer object is completely created and the player characters joins the world.
+
+```lua
+AddEventHandler("esx:playerLoaded", function(playerId, xPlayer, isNew)
+end)
+```
+
 ## esx:setJob
 
 Triggered after any change in xPlayer's job.
