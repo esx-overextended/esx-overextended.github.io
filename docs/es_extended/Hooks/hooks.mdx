@@ -1,0 +1,35 @@
+---
+title: Hooks
+sidebar_label: Hooks
+---
+
+# Hooks
+
+Event hooks allow 3rd party resources to define new behaviour without modifying the framework code directly, or to do some checks and calculations or data manipulating before an action completely takes in place...
+
+## registerHook
+
+```lua
+exports["es_extended"]:registerHook(event, function(payload) end, options)
+```
+
+- event: `string`
+- payload: `table`
+- options?: `table`
+  - print?: `boolean`
+    - Print to the console when triggering the event.
+
+Return:
+
+- hookId: `number`
+
+## removeHooks
+
+Removes a hook created by the invoking resource with the the specified id.  
+If no id is specified then all hooks registered by the resource are removed.
+
+```lua
+exports["es_extended"]:removeHooks(id)
+```
+
+- id?: `number`

@@ -1,0 +1,75 @@
+---
+title: Server Hooks
+sidebar_label: Server
+---
+
+## onPlayerLoad
+
+Triggered after xPlayer object is created but before triggering its initial event of [`esx:playerLoaded`](../Player/Server/events.mdx)
+
+- Payload: `table`
+  - xPlayer: `table`
+  - isNew: `boolean`
+
+**Example**
+
+Adds a field and a method only to the xPlayer object of Ids 1 and 2 before triggering their initial event
+
+```lua
+local validIds = {
+    [1] = true,
+    [2] = true
+}
+
+local hookId = exports["es_extended"]:registerHook("onPlayerLoad", function(payload)
+    local xPlayer = payload?.xPlayer
+
+    if not validIds[xPlayer?.source] then return end
+
+    xPlayer.setMethod("getSumTwoNumbers", function(self)
+        return function(num1, num2)
+            return num1 + num2
+        end
+    end)
+
+    xPlayer.setField("amISpecial", {"Yes", "No"}[math.random(1, 2)])
+end, { -- optional
+    print = true,
+})
+
+-- when the initial event is called
+AddEventHandler("esx:playerLoaded", function(playerId, xPlayer, isNew)
+    if not validIds[playerId] then return end
+
+    print(("Player %s is loaded"):format(playerId))
+    print("2 + 3 is equal to", xPlayer.getSumTwoNumbers(2 + 3)) -- prints 5
+    print("Is player special?", xPlayer.amISpecial) -- prints "Yes" or "No"
+end)
+```
+
+## onVehicleCreate
+
+Triggered after xVehicle object is created but before triggering its initial event of [`esx:vehicleCreated`](../Vehicle/Server/events.mdx)
+
+- Payload: `table`
+  - xVehicle: `table`
+
+**Example**
+
+Adds a field to the xVehicle objects before triggering their initial event
+
+```lua
+
+local hookId = exports["es_extended"]:registerHook("onVehicleCreate", function(payload)
+    local xVehicle = payload?.xVehicle
+
+    xVehicle.setField("sponsor", {"ESX-Overextended", "NASA"}[math.random(1, 2)])
+end, { -- optional
+    print = true,
+})
+
+-- when the initial event is called
+AddEventHandler("esx:vehicleCreated", function(entity, netId, xVehicle)
+    print(("The vehicle(entity: %s, netId: %s) is sponsored by"):format(entity, netId, xVehicle?.sponsor)) -- "ESX-Overextended" or "NASA"
+end)
+```
