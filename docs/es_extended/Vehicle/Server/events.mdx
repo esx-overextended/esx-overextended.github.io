@@ -1,0 +1,22 @@
+---
+title: Vehicle Related Events
+sidebar_label: Events
+---
+
+## esx:vehicleCreated
+
+Triggered when a xVehicle object is completely created and the vehicle spawns into the world.
+
+```lua
+AddEventHandler("esx:vehicleCreated", function(entity, netId, xVehicle)
+end)
+```
+
+## esx:vehicleDeleted
+
+Triggered when a xVehicle object is completely deleted.
+
+```lua
+AddEventHandler("esx:vehicleDeleted", function(id, entity, netId, vin, plate)
+end)
+```
