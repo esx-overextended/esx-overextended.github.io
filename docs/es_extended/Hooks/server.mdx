@@ -11,7 +11,9 @@ Triggered after xPlayer object is created but before triggering its initial even
   - xPlayer: `table`
   - isNew: `boolean`
 
-**Example**
+:::info
+
+#### Example
 
 Adds a field and a method only to the xPlayer object of Ids 1 and 2 before triggering their initial event
 
@@ -37,15 +39,22 @@ end, { -- optional
     print = true,
 })
 
--- when the initial event is called
+```
+
+_When the initial event is called:_
+
+```lua
 AddEventHandler("esx:playerLoaded", function(playerId, xPlayer, isNew)
-    if not validIds[playerId] then return end
+if not validIds[playerId] then return end
 
     print(("Player %s is loaded"):format(playerId))
     print("2 + 3 is equal to", xPlayer.getSumTwoNumbers(2 + 3)) -- prints 5
     print("Is player special?", xPlayer.amISpecial) -- prints "Yes" or "No"
+
 end)
 ```
+
+:::
 
 ## onVehicleCreate
 
@@ -54,12 +63,13 @@ Triggered after xVehicle object is created but before triggering its initial eve
 - Payload: `table`
   - xVehicle: `table`
 
-**Example**
+:::info
+
+#### Example
 
 Adds a field to the xVehicle objects before triggering their initial event
 
 ```lua
-
 local hookId = exports["es_extended"]:registerHook("onVehicleCreate", function(payload)
     local xVehicle = payload?.xVehicle
 
@@ -67,9 +77,14 @@ local hookId = exports["es_extended"]:registerHook("onVehicleCreate", function(p
 end, { -- optional
     print = true,
 })
+```
 
--- when the initial event is called
+_When the initial event is called:_
+
+```lua
 AddEventHandler("esx:vehicleCreated", function(entity, netId, xVehicle)
     print(("The vehicle(entity: %s, netId: %s) is sponsored by"):format(entity, netId, xVehicle?.sponsor)) -- "ESX-Overextended" or "NASA"
 end)
 ```
+
+:::
